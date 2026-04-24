@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Generated output — keep test images, ignore what the tool produces
+tests/*.obj
+tests/*.mtl
+tests/*.3mf
