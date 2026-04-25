@@ -36,7 +36,7 @@ def main() -> None:
                         help="Output format")
 
     geo = parser.add_argument_group("geometry")
-    geo.add_argument("--width", type=float, default=100.0,
+    geo.add_argument("--width", type=float, default=200.0,
                      help="Print width in mm")
     geo.add_argument("--layer-height", type=float, default=0.2,
                      help="Layer height in mm")
