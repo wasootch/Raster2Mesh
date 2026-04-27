@@ -7,7 +7,7 @@ My kid's softball team came up with a logo and I couldn't find a tool that would
 ## How it works
 
 1. **Background removal** — transparent pixels and near-white pixels reachable from the image border are treated as background and excluded. Interior white regions (e.g. white text inside a dark logo) are preserved as a foreground color.
-2. **Color quantization** — foreground pixels are quantized to at most `--colors` colors (default 16) using median-cut.
+2. **Color quantization** — foreground pixels are quantized to at most `--colors` colors (default 4) using median-cut.
 3. **Polygon building** — each color region is vectorized into Shapely polygons, optionally simplified to reduce triangle count.
 4. **Mesh extrusion** — each color polygon is inset slightly and extruded into a closed solid. A solid base slab is added underneath for strength.
 5. **Output** — the mesh is written as OBJ (with MTL) or 3MF. Each color is a separate named object/component so your slicer can assign it to an AMS slot.
@@ -34,7 +34,7 @@ Requirements: Python 3.10+, Pillow, NumPy, Shapely, mapbox-earcut.
 ## Usage
 
 ```bash
-# Basic — 200 mm wide, up to 16 colors, OBJ output
+# Basic — 200 mm wide, up to 4 colors, OBJ output
 python raster2mesh.py logo.png
 
 # Custom width and color count
@@ -60,7 +60,7 @@ python raster2mesh.py logo.png --white-threshold 230
 | `--color-layers` | `2` | Number of layers that carry color |
 | `--base-layers` | `15` | Number of solid base layers |
 | `--base-color-index` | `0` | Palette index of the base color |
-| `--colors` | `16` | Maximum colors after quantization |
+| `--colors` | `4` | Maximum colors after quantization |
 | `--white-threshold` | `240` | R, G, B all ≥ this → background candidate |
 | `--simplify` | `0.5 × pixel_size` | Polygon simplification tolerance in mm |
 | `--no-mirror` | off | Disable automatic horizontal flip |

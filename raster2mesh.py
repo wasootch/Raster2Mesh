@@ -48,7 +48,7 @@ def main() -> None:
                      help="Palette index of the color used for the base")
 
     img = parser.add_argument_group("image processing")
-    img.add_argument("--colors", type=int, default=16,
+    img.add_argument("--colors", type=int, default=4,
                      help="Maximum number of colors after quantization")
     img.add_argument("--white-threshold", type=int, default=240,
                      help="Pixels with R, G, B all >= this value are treated as background")
