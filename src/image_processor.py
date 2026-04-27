@@ -47,7 +47,7 @@ def _edge_connected_white(near_white: np.ndarray) -> np.ndarray:
 
 def load_and_process(
     image_path: str,
-    max_colors: int = 16,
+    max_colors: int = 4,
     white_threshold: int = 240,
     alpha_threshold: int = 10,
     mirror: bool = True,
